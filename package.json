@@ -1,0 +1,12 @@
+{
+  "name": "@reliquaryhq/jsfs",
+  "version": "0.1.0",
+  "description": "Emscripten-compatible file system implementation based on MEMFS",
+  "main": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Reliquary Contributors",
+  "license": "MIT",
+  "repository": "github:reliquaryhq/dosbox-engine"
+}
