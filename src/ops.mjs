@@ -2,6 +2,7 @@ import DirNode from './DirNode';
 import FileNode from './FileNode';
 import { EINVAL, ENOENT } from './const';
 import { isChrdev, isDir, isFile, isLink, } from './util/fs';
+import { resizeNode } from './util/fs.mjs';
 
 const nodeOps = {
   getattr: (fs, node) => {
@@ -77,11 +78,7 @@ const nodeOps = {
     }
 
     if (attr.size !== undefined) {
-      if (attr.size === 0) {
-        node.contents = new Uint8Array();
-      } else {
-        throw new Error('not implemented');
-      }
+      resizeNode(node, attr.size);
     }
   }
 };

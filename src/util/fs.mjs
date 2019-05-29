@@ -43,6 +43,20 @@ const modeStringToFlags = (str) => {
   return flags;
 };
 
+const resizeNode = (node, size) => {
+  if (size === 0) {
+    if (node.contents.length !== 0) {
+      node.contents = new Uint8Array();
+    }
+
+    return;
+  }
+
+  const contents = new Uint8Array(size);
+  contents.set(node.contents.subarray(0, Math.min(size, node.contents.length)));
+  node.contents = contents;
+};
+
 export {
   isChrdev,
   isClosed,
@@ -53,4 +67,5 @@ export {
   isRoot,
   lookup,
   modeStringToFlags,
+  resizeNode,
 };
